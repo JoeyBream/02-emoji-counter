@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes emoji-float {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(0deg) scale(0);
+  }
+  10% {
+    opacity: 1;
+    transform: translate(calc(var(--emoji-x) * 0.1), calc(var(--emoji-y) * 0.1)) 
+               rotate(calc(var(--emoji-rotation) * 0.1)) 
+               scale(var(--emoji-scale));
+  }
+  100% {
+    transform: translate(var(--emoji-x), var(--emoji-y)) 
+               rotate(var(--emoji-rotation)) 
+               scale(var(--emoji-scale));
+    opacity: 0;
+  }
+}
+
+.animate-emoji {
+  animation: emoji-float var(--emoji-duration) cubic-bezier(0.25, 0.46, 0.45, 0.94) var(--emoji-delay, 0ms) forwards;
+}
