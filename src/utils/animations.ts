@@ -15,6 +15,14 @@ const ANIMATION_CONFIGS: Record<AnimationStyle, AnimationConfig> = {
     particleCount: 12,
     duration: [2500, 3500],
   },
+  pooSpiral: {
+    name: 'Poo Spiral',
+    description: 'Particles spiral outward in a mesmerizing pattern',
+    emoji: '💩',
+    particleCount: 12,
+    duration: [2500, 3500],
+  },
+
   wave: {
     name: 'Wave',
     description: 'Particles flow in a gentle wave pattern',
@@ -42,15 +50,25 @@ export const generateParticles = (
     let y: number;
     let rotation: number;
     let delay: number;
-
+    let radius; 
+    
     switch (style) {
       case 'spiral':
-        const radius = Math.min(windowSize.width, windowSize.height) * 0.4;
+        radius = Math.min(windowSize.width, windowSize.height) * 0.4;
         x = Math.cos(baseAngle) * radius;
         y = Math.sin(baseAngle) * radius;
         rotation = baseAngle * (180 / Math.PI) + 360;
         delay = (i / config.particleCount) * 200;
         break;
+
+      case 'pooSpiral':
+        radius = Math.min(windowSize.width, windowSize.height) * 0.4;
+        x = Math.cos(baseAngle) * radius;
+        y = Math.sin(baseAngle) * radius;
+        rotation = baseAngle * (180 / Math.PI) + 360;
+        delay = (i / config.particleCount) * 200;
+        break;
+  
 
       case 'wave':
         x = (i / config.particleCount) * windowSize.width - windowSize.width / 2;

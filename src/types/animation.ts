@@ -1,4 +1,4 @@
-export type AnimationStyle = 'burst' | 'spiral' | 'wave';
+export type AnimationStyle = 'burst' | 'spiral' | 'wave' | 'pooSpiral';
 
 export interface AnimationConfig {
   name: string;

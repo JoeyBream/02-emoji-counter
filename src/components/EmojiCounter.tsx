@@ -66,7 +66,7 @@ const EmojiCounter: React.FC = () => {
   };
 
   const cycleAnimationStyle = () => {
-    const styles: AnimationStyle[] = ['burst', 'spiral', 'wave'];
+    const styles: AnimationStyle[] = ['burst', 'spiral', 'wave', 'pooSpiral'];
     const currentIndex = styles.indexOf(animationStyle);
     const nextIndex = (currentIndex + 1) % styles.length;
     setAnimationStyle(styles[nextIndex]);
